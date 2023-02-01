@@ -1,17 +1,15 @@
 import openai
-from src import OPENAI_API_KEY
+from src.constants import OPENAI_API_KEY
+
+openai.api_key = OPENAI_API_KEY
 
 def create_chatgpt_response(prompt):
-    openai.api_key = OPENAI_API_KEY
+    print(f"sending to chatgpt Prompt: {prompt}")
     response = openai.Completion.create(
-        engine="davinci",
+        model="text-davinci-003",
         prompt=prompt,
-        temperature=0.9,
-        max_tokens=150,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0.6,
-        stop=["\n", " Human:", " AI:"]
+        temperature=1,
+        max_tokens=100,
     )
     print(f"Response from chat gpt: {response}")
     response_dict = response.get('choices')
