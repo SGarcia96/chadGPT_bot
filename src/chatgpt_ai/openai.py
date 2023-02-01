@@ -4,7 +4,6 @@ from src.constants import OPENAI_API_KEY
 openai.api_key = OPENAI_API_KEY
 
 def create_chatgpt_response(prompt):
-    print(f"sending to chatgpt Prompt: {prompt}")
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
