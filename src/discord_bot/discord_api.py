@@ -1,10 +1,5 @@
-from dotenv import load_dotenv
 from src.chatgpt_ai import create_chatgpt_response
-import os
 import discord
-
-load_dotenv()
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 commands = ['/ai', '/bot']
 
